@@ -55,7 +55,7 @@
 }
 
 .rewind_back_video{
-    margin-left:  10px;
+    margin-left:  15px;
     margin-right: 20%;
 }
 
@@ -77,4 +77,13 @@
 }
 
 
+.rewind_30seconds{
+    margin-left: 15px;
+    margin-right: 30px;
+}
+
+
+.pause_start_button{
+    margin-right: 10px;
+}
 
