@@ -16,11 +16,11 @@ const videoList = [
     // Add more video URLs as needed
 ];
 
-document.getElementById('connectButton').addEventListener('click', () => {
+document.getElementById('power_button').addEventListener('click', () => {
     initializeApiOnly();
 });
 
-document.getElementById('startBtn').addEventListener('click', () => {
+document.getElementById('options_button').addEventListener('click', () => {
     if (currentSession) {
         loadMedia(videoList[currentVideoIndex]);
     } else {
@@ -28,7 +28,7 @@ document.getElementById('startBtn').addEventListener('click', () => {
     }
 });
 
-document.getElementById('nextBtn').addEventListener('click', () => {
+document.getElementById('rewind_foward_video').addEventListener('click', () => {
     if (currentSession) {
         currentVideoIndex = (currentVideoIndex + 1) % videoList.length;
         loadMedia(videoList[currentVideoIndex]);
@@ -37,7 +37,7 @@ document.getElementById('nextBtn').addEventListener('click', () => {
     }
 });
 
-document.getElementById('playBtn').addEventListener('click', () => {
+document.getElementById('pauseStart_button').addEventListener('click', () => {
     if (currentMediaSession) {
         if (isPlaying) {
             currentMediaSession.pause(null, onMediaCommandSuccess, onError);
@@ -51,15 +51,15 @@ document.getElementById('playBtn').addEventListener('click', () => {
 
 function sessionListener(newSession) {
     currentSession = newSession;
-    document.getElementById('startBtn').style.display = 'block';
-    document.getElementById('nextBtn').style.display = 'block';
+    document.getElementById('options_button').style.display = 'block';
+    document.getElementById('rewind_foward_video').style.display = 'block';
 }
 
 
 
 function initializeSeekSlider(remotePlayerController, mediaSession) {
     currentMediaSession = mediaSession;
-    document.getElementById('playBtn').style.display = 'block';
+    document.getElementById('pauseStart_button').style.display = 'block';
    // Set max value of seek slider to media duration in seconds
    seekSlider.max = mediaSession.media.duration;
 
