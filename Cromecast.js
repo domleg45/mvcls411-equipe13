@@ -29,6 +29,12 @@ document.getElementById('options_button').addEventListener('click', () => {
     }
 });
 
+//Method for enabling subtitles
+document.getElementById('').addEventListener('click', () => {
+    
+
+});
+
 document.getElementById('rewind_foward_video').addEventListener('click', () => {
     if (currentSession) {
         currentVideoIndex = (currentVideoIndex + 1) % videoList.length;
