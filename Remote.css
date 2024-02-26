@@ -29,17 +29,37 @@
     padding-top: 10px;
     padding-left: 10px;
 }
+
 .options_button{
     vertical-align: top;
     margin-right: 380px;
     text-decoration: none;
     border: none;
     background-color: rgb(11, 165, 255);
+    border-radius: 40px;
+}
+
+.option-CSS{
+    border: 1px;
+    background-color: rgb(11, 165, 255);
+    border-radius:  40px;
+    border-width: 1px;
+    padding: 10px;
 }
 
 .power_button{
     vertical-align: top;
     margin-right: 10px;
+    border-radius: 40px;
+    background-color: crimson;
+}
+
+.power-CSS{
+    border: 1px;
+    background-color: crimson;
+    border-radius:  40px;
+    border-width: 1px;
+    padding: 10px;
 }
 
 
@@ -61,6 +81,11 @@
 
 .subtitles_button{
     margin-right: 20%;
+}
+
+.CC-CSS{
+    background-color: yellow;
+    border-radius: 14px;
 }
 
 
