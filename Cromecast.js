@@ -95,6 +95,10 @@ function receiverListener(availability) {
     }
 }
 
+function enableSubtitles(){
+    //code for subtitles here
+}
+
 function onInitSuccess() {
     console.log('Chromecast init success');
 }
