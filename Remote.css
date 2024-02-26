@@ -40,8 +40,16 @@
 }
 
 .option-CSS{
-    border: 1px;
+    border: 2px;
     background-color: rgb(11, 165, 255);
+    border-radius:  40px;
+    border-width: 1px;
+    padding: 10px;
+}
+
+.option-CSS:hover{
+    border: 2px;
+    background-color: rgb(11, 134, 206);
     border-radius:  40px;
     border-width: 1px;
     padding: 10px;
@@ -57,6 +65,14 @@
 .power-CSS{
     border: 1px;
     background-color: crimson;
+    border-radius:  40px;
+    border-width: 1px;
+    padding: 10px;
+}
+
+.power-CSS:hover{
+    border: 1px;
+    background-color: rgb(184, 16, 50);
     border-radius:  40px;
     border-width: 1px;
     padding: 10px;
