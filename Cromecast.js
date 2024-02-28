@@ -77,8 +77,6 @@ document.getElementById('pauseStart_button').addEventListener('click', () => {
 document.getElementById('forward_10seconds').addEventListener('click', () => {
     const currentTime = mediaSession.getEstimatedTime();
     const totalTime = mediaSession.media.duration;
-    currentTimeElement.textContent = formatTime(currentTime);
-    totalTimeElement.textContent = formatTime(totalTime);
 
     currentTime + 10;
 
