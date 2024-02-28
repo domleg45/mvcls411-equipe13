@@ -44,6 +44,18 @@ document.getElementById('rewind_foward_video').addEventListener('click', () => {
     }
 });
 
+document.getElementById('rewind_back_video').addEventListener('click', () => {
+    if (currentSession) {
+        currentVideoIndex = (currentVideoIndex - 1) % videoList.length;
+        loadMedia(videoList[currentVideoIndex]);
+        if (currentVideoIndex < 0) {
+            currentVideoIndex = videoList.length;
+        }
+    } else {
+        alert('Connectez-vous sur chromecast en premier');
+    }
+});
+
 document.getElementById('pauseStart_button').addEventListener('click', () => {
     if (currentMediaSession) {
         if (isPlaying) {
