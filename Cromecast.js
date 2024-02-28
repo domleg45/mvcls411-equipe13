@@ -56,6 +56,12 @@ document.getElementById('rewind_back_video').addEventListener('click', () => {
     }
 });
 
+//Method for skipping 30 seconds back
+document.getElementById('').addEventListener('click', () => {
+    
+
+});
+
 document.getElementById('pauseStart_button').addEventListener('click', () => {
     if (currentMediaSession) {
         if (isPlaying) {
@@ -65,6 +71,12 @@ document.getElementById('pauseStart_button').addEventListener('click', () => {
         }
         isPlaying = !isPlaying;
     }
+});
+
+//Method for skipping 10 seconds forward
+document.getElementById('').addEventListener('click', () => {
+    
+
 });
 
 
