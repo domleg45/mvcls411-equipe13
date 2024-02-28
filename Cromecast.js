@@ -30,7 +30,7 @@ document.getElementById('options_button').addEventListener('click', () => {
 });
 
 //Method for enabling subtitles
-document.getElementById('').addEventListener('click', () => {
+document.getElementById('subtitles_button').addEventListener('click', () => {
     
 
 });
@@ -57,7 +57,7 @@ document.getElementById('rewind_back_video').addEventListener('click', () => {
 });
 
 //Method for skipping 30 seconds back
-document.getElementById('').addEventListener('click', () => {
+document.getElementById('rewind_30seconds').addEventListener('click', () => {
     
 
 });
@@ -74,7 +74,7 @@ document.getElementById('pauseStart_button').addEventListener('click', () => {
 });
 
 //Method for skipping 10 seconds forward
-document.getElementById('').addEventListener('click', () => {
+document.getElementById('forward_10seconds').addEventListener('click', () => {
     
 
 });
