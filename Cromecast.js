@@ -75,8 +75,20 @@ document.getElementById('pauseStart_button').addEventListener('click', () => {
 
 //Method for skipping 10 seconds forward
 document.getElementById('forward_10seconds').addEventListener('click', () => {
-    
+    const currentTime = mediaSession.getEstimatedTime();
+    const totalTime = mediaSession.media.duration;
+    currentTimeElement.textContent = formatTime(currentTime);
+    totalTimeElement.textContent = formatTime(totalTime);
 
+    currentTime + 10;
+
+    if (currentTime > totalTime) {
+        currentVideoIndex = (currentVideoIndex + 1) % videoList.length;
+        loadMedia(videoList[currentVideoIndex]);
+    }
+    else{
+        alert('Une erreur est survenu')
+    }
 });
 
 
