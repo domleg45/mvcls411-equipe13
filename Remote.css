@@ -126,5 +126,17 @@
 
 .pauseStart_button{
     margin-right: 40px;
+    
 }
 
+.pauseStart_button-CSS{
+    background-color: rgba(239, 223, 198, 1);
+    border-radius: 25px;
+    padding: 10px;
+}
+
+.pauseStart_button-CSS:hover{
+    background-color: rgb(214, 200, 176);
+    border-radius: 25px;
+    padding: 10px;
+}
