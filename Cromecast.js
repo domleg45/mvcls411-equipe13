@@ -58,7 +58,17 @@ document.getElementById('rewind_back_video').addEventListener('click', () => {
 
 //Method for skipping 30 seconds back
 document.getElementById('rewind_30seconds').addEventListener('click', () => {
-    
+    const currentTime = mediaSession.getEstimatedTime();
+    const totalTime = mediaSession.media.duration;
+
+    currentTime - 30;
+
+    if (currentTime < 0) {
+        currentTime == 0;
+    }
+    else{
+        alert('Une erreur est survenu')
+    }
 
 });
 
