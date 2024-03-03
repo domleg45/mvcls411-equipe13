@@ -12,15 +12,16 @@ const applicationID = '3DDC41A0';
 const videoList = [
     'https://transfertco.ca/video/DBillPrelude.mp4',
     'https://transfertco.ca/video/DBillSpotted.mp4',
-    'https://transfertco.ca/video/usa23_7_02.mp4'
+    'https://transfertco.ca/video/usa23_7_02.mp4',
+    'https://drive.google.com/file/d/17U-2jbGkzWg6-8-uvesS_aNELsW1IzaG/view?usp=sharing'
     // Add more video URLs as needed
 ];
 
-document.getElementById('connectButton').addEventListener('click', () => {
+document.getElementById('power_button').addEventListener('click', () => {
     initializeApiOnly();
 });
 
-document.getElementById('startBtn').addEventListener('click', () => {
+document.getElementById('options_button').addEventListener('click', () => {
     if (currentSession) {
         loadMedia(videoList[currentVideoIndex]);
     } else {
@@ -28,7 +29,13 @@ document.getElementById('startBtn').addEventListener('click', () => {
     }
 });
 
-document.getElementById('nextBtn').addEventListener('click', () => {
+//Method for enabling subtitles
+document.getElementById('subtitles_button').addEventListener('click', () => {
+    
+
+});
+
+document.getElementById('rewind_foward_video').addEventListener('click', () => {
     if (currentSession) {
         currentVideoIndex = (currentVideoIndex + 1) % videoList.length;
         loadMedia(videoList[currentVideoIndex]);
@@ -37,7 +44,35 @@ document.getElementById('nextBtn').addEventListener('click', () => {
     }
 });
 
-document.getElementById('playBtn').addEventListener('click', () => {
+document.getElementById('rewind_back_video').addEventListener('click', () => {
+    if (currentSession) {
+        currentVideoIndex = (currentVideoIndex - 1) % videoList.length;
+        loadMedia(videoList[currentVideoIndex]);
+        if (currentVideoIndex < 0) {
+            currentVideoIndex = videoList.length;
+        }
+    } else {
+        alert('Connectez-vous sur chromecast en premier');
+    }
+});
+
+//Method for skipping 30 seconds back
+document.getElementById('rewind_30seconds').addEventListener('click', () => {
+    const currentTime = mediaSession.getEstimatedTime();
+    const totalTime = mediaSession.media.duration;
+
+    currentTime - 30;
+
+    if (currentTime < 0) {
+        currentTime == 0;
+    }
+    else{
+        alert('Une erreur est survenu')
+    }
+
+});
+
+document.getElementById('pauseStart_button').addEventListener('click', () => {
     if (currentMediaSession) {
         if (isPlaying) {
             currentMediaSession.pause(null, onMediaCommandSuccess, onError);
@@ -48,18 +83,34 @@ document.getElementById('playBtn').addEventListener('click', () => {
     }
 });
 
+//Method for skipping 10 seconds forward
+document.getElementById('forward_10seconds').addEventListener('click', () => {
+    const currentTime = mediaSession.getEstimatedTime();
+    const totalTime = mediaSession.media.duration;
+
+    currentTime + 10;
+
+    if (currentTime > totalTime) {
+        currentVideoIndex = (currentVideoIndex + 1) % videoList.length;
+        loadMedia(videoList[currentVideoIndex]);
+    }
+    else{
+        alert('Une erreur est survenu')
+    }
+});
+
 
 function sessionListener(newSession) {
     currentSession = newSession;
-    document.getElementById('startBtn').style.display = 'block';
-    document.getElementById('nextBtn').style.display = 'block';
+    document.getElementById('options_button').style.display = 'block';
+    document.getElementById('rewind_foward_video').style.display = 'block';
 }
 
 
 
 function initializeSeekSlider(remotePlayerController, mediaSession) {
     currentMediaSession = mediaSession;
-    document.getElementById('playBtn').style.display = 'block';
+    document.getElementById('pauseStart_button').style.display = 'block';
    // Set max value of seek slider to media duration in seconds
    seekSlider.max = mediaSession.media.duration;
 
@@ -88,6 +139,10 @@ function receiverListener(availability) {
     }
 }
 
+function enableSubtitles(){
+    //code for subtitles here
+}
+
 function onInitSuccess() {
     console.log('Chromecast init success');
 }
@@ -102,7 +157,7 @@ function onMediaCommandSuccess() {
 
 function initializeApiOnly() {
     
-    const sessionRequest = new chrome.cast.SessionRequest(applicationID);
+    const sessionRequest = new chrome.cast.SessionRequest(chrome.cast.media.DEFAULT_MEDIA_RECEIVER_APP_ID);
     const apiConfig = new chrome.cast.ApiConfig(sessionRequest, sessionListener, receiverListener);
 
     chrome.cast.initialize(apiConfig, onInitSuccess, onError);
