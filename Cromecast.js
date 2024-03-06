@@ -91,14 +91,17 @@ document.getElementById('forward_10seconds').addEventListener('click', () => {
 
 //Method for upping the volume
 document.getElementById('up_volume').addEventListener('click', () => {
-    const volume = 0
-    
+    const volume = currentMediaSession.volume.level
+    const NewVolume = Math.min(volume + 0.1)
+    currentMediaSession.ControlVolume(NewVolume, onMediaCommandSuccess, onError)
     
 });
 
 //Method for upping the volume
 document.getElementById('down_volume').addEventListener('click', () => {
-   
+    const volume = currentMediaSession.volume.level
+    const NewVolume = Math.min(volume - 0.1)
+    currentMediaSession.ControlVolume(NewVolume, onMediaCommandSuccess, onError)
    
 });
 
