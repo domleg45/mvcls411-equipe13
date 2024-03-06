@@ -30,7 +30,7 @@ document.getElementById('options_button').addEventListener('click', () => {
 });
 
 //Method for enabling subtitles
-document.getElementById('').addEventListener('click', () => {
+document.getElementById('subtitles_button').addEventListener('click', () => {
     
 
 });
@@ -44,6 +44,34 @@ document.getElementById('rewind_foward_video').addEventListener('click', () => {
     }
 });
 
+document.getElementById('rewind_back_video').addEventListener('click', () => {
+    if (currentSession) {
+        currentVideoIndex = (currentVideoIndex - 1) % videoList.length;
+        loadMedia(videoList[currentVideoIndex]);
+        if (currentVideoIndex < 0) {
+            currentVideoIndex = videoList.length;
+        }
+    } else {
+        alert('Connectez-vous sur chromecast en premier');
+    }
+});
+
+//Method for skipping 30 seconds back
+document.getElementById('rewind_30seconds').addEventListener('click', () => {
+    const currentTime = mediaSession.getEstimatedTime();
+    const totalTime = mediaSession.media.duration;
+
+    currentTime - 30;
+
+    if (currentTime < 0) {
+        currentTime == 0;
+    }
+    else{
+        alert('Une erreur est survenu')
+    }
+
+});
+
 document.getElementById('pauseStart_button').addEventListener('click', () => {
     if (currentMediaSession) {
         if (isPlaying) {
@@ -52,6 +80,22 @@ document.getElementById('pauseStart_button').addEventListener('click', () => {
             currentMediaSession.play(null, onMediaCommandSuccess, onError);
         }
         isPlaying = !isPlaying;
+    }
+});
+
+//Method for skipping 10 seconds forward
+document.getElementById('forward_10seconds').addEventListener('click', () => {
+    const currentTime = mediaSession.getEstimatedTime();
+    const totalTime = mediaSession.media.duration;
+
+    currentTime + 10;
+
+    if (currentTime > totalTime) {
+        currentVideoIndex = (currentVideoIndex + 1) % videoList.length;
+        loadMedia(videoList[currentVideoIndex]);
+    }
+    else{
+        alert('Une erreur est survenu')
     }
 });
 
