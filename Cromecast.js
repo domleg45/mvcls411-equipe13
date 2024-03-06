@@ -86,6 +86,8 @@ document.getElementById('forward_10seconds').addEventListener('click', () => {
 
     currentTime + 10;
 
+    
+
     if (currentTime > totalTime) {
         currentVideoIndex = (currentVideoIndex + 1) % videoList.length;
         loadMedia(videoList[currentVideoIndex]);
