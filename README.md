@@ -19,9 +19,9 @@ Il manque les icones pour rendre la manette plus proche au design de la maquette
 J'ai eux du mal a re-créer les triangles de la maquette 
 
 
---Le boutton des sous titres a été 
-remplacé par 2 bouttons de volumes 
-qui reste a implementé
---------------------------------------
+> [!NOTE]
+> Le boutton des sous titres a été remplacé par 2 bouttons de volumes qui reste a implementé
+
+
 
 
