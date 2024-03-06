@@ -53,8 +53,8 @@ document.getElementById('rewind_back_video').addEventListener('click', () => {
 
 //Method for skipping 30 seconds back
 document.getElementById('rewind_30seconds').addEventListener('click', () => {
-    const currentTime = mediaSession.getEstimatedTime();
-    const totalTime = mediaSession.media.duration;
+    const currentTime = currentMediaSession.getEstimatedTime();
+    const totalTime = currentMediaSession.media.duration;
 
     currentTime - 30;
 
