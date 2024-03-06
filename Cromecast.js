@@ -58,6 +58,11 @@ document.getElementById('rewind_30seconds').addEventListener('click', () => {
     const seekRequest = new chrome.cast.media.SeekRequest()
     seekRequest.currentTime =  currentTime - 30;
     currentMediaSession.seek(seekRequest, onMediaCommandSuccess, onError);
+
+    if (currentTime < 0) {
+        seekRequest.currentTime = 0
+        currentMediaSession.seek(seekRequest, onMediaCommandSuccess, onError);
+    }
 });
 
 document.getElementById('pauseStart_button').addEventListener('click', () => {
