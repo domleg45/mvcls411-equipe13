@@ -3,12 +3,15 @@
 --Élies Oualhaci--
 ---------------------
 
-La controller a ces fonctionalitée au présent:
+* La controller a ces fonctionalitée au présent:
 
-* Rewind 30 secondes vers l'arrière dans une vidéo
-* Forward 10 secondes ver l'avant dans une vidéo
-* Skip une video vers l'avant
-* Skip une video vers l'arrière
+- [x] Rewind 30 secondes vers l'arrière dans une vidéo
+- [x] Forward 10 secondes ver l'avant dans une vidéo
+- [x] Skip une video vers l'avant
+- [x] Skip une video vers l'arrière
+- [ ] Mute
+- [ ] Options
+- [ ] Sous-Titres
 
 
 J'ai éssayé de implementer une fonction à sous-titres (CC/Subtitles) mais sa conception est trop avancé pour moi 
