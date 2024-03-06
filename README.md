@@ -16,7 +16,7 @@
 
 J'ai éssayé de implementer une fonction à sous-titres (CC/Subtitles) mais sa conception est trop avancé pour moi 
 Il manque les icones pour rendre la manette plus proche au design de la maquette mais les bouttons sont présent.
-J'ai eux du mal a re-créer les triangles de la maquette 
+J'ai eux du mal a re-créer les triangles de la maquette ET la présentation de la manette n'est pas encore optimale.
 
 
 > [!NOTE]
