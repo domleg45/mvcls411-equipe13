@@ -55,17 +55,9 @@ document.getElementById('rewind_back_video').addEventListener('click', () => {
 //Method for skipping 30 seconds back
 document.getElementById('rewind_30seconds').addEventListener('click', () => {
     const currentTime = currentMediaSession.getEstimatedTime();
-    const totalTime = currentMediaSession.media.duration;
-
-    currentTime - 30;
-
-    if (currentTime < 0) {
-        currentTime == 0;
-    }
-    else{
-        alert('Une erreur est survenu')
-    }
-
+    const seekRequest = new chrome.cast.media.SeekRequest()
+    seekRequest.currentTime =  currentTime - 30;
+    currentMediaSession.seek(seekRequest, onMediaCommandSuccess, onError);
 });
 
 document.getElementById('pauseStart_button').addEventListener('click', () => {
