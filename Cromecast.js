@@ -4,6 +4,7 @@ let isPlaying = true;
 let currentVideoIndex = 0;
 let currentVideoUrl;
 let updateInterval;
+let Volume 
 const seekSlider = document.getElementById('seekSlider');
 const currentTimeElement = document.getElementById('currentTime');
 const totalTimeElement = document.getElementById('totalTime');
@@ -95,6 +96,20 @@ document.getElementById('forward_10seconds').addEventListener('click', () => {
 });
 
 
+//Method for upping the volume
+document.getElementById('').addEventListener('click', () => {
+    
+    
+});
+
+//Method for upping the volume
+document.getElementById('').addEventListener('click', () => {
+   
+   
+});
+
+
+
 function sessionListener(newSession) {
     currentSession = newSession;
     document.getElementById('options_button').style.display = 'block';
@@ -134,8 +149,9 @@ function receiverListener(availability) {
     }
 }
 
-function enableSubtitles(){
-    //code for subtitles here
+function ControlVolume(volumeLevel){
+   const currentVolume = new chrome.cast.Volume(volumeLevel)
+   const NewVolume = new chrome.cast.media.NewVolume()
 }
 
 function onInitSuccess() {
