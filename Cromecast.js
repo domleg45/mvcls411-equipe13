@@ -143,15 +143,16 @@ function initializeSeekSlider(remotePlayerController, mediaSession) {
 
 function receiverListener(availability) {
     if (availability === chrome.cast.ReceiverAvailability.AVAILABLE) {
-        document.getElementById('connectButton').style.display = 'block';
+        document.getElementById('options_button').style.display = 'block';
     } else {
-        document.getElementById('connectButton').style.display = 'none';
+        document.getElementById('options_button').style.display = 'none';
     }
 }
 
 function ControlVolume(volumeLevel){
    const currentVolume = new chrome.cast.Volume(volumeLevel)
-   const NewVolume = new chrome.cast.media.NewVolume()
+   const NewVolume = new chrome.cast.media.NewVolume(currentVolume)
+   currentMediaSession.ControlVolume(NewVolume, onMediaCommandSuccess, onError)
 }
 
 function onInitSuccess() {
