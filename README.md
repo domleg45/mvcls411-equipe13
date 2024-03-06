@@ -10,8 +10,6 @@ La controller a ces fonctionalitée au présent:
 -Skip une video vers l'avant
 -Skip une video vers l'arrière
 
-~~~(augmenter le volume et le descendre a implémenter)~~~
-
 
 J'ai éssayé de implementer une fonction à sous-titres (CC/Subtitles) mais sa conception est trop avancé pour moi 
 Il manque les icones pour rendre la manette plus proche au design de la maquette mais les bouttons sont présent.
