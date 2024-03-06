@@ -80,8 +80,8 @@ document.getElementById('pauseStart_button').addEventListener('click', () => {
 
 //Method for skipping 10 seconds forward
 document.getElementById('forward_10seconds').addEventListener('click', () => {
-    const currentTime = mediaSession.getEstimatedTime();
-    const totalTime = mediaSession.media.duration;
+    const currentTime = currentMediaSession.getEstimatedTime();
+    const totalTime = currentMediaSession.media.duration;
 
     currentTime + 10;
 
