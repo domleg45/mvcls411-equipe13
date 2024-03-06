@@ -65,6 +65,7 @@ document.getElementById('rewind_30seconds').addEventListener('click', () => {
     }
 });
 
+
 document.getElementById('pauseStart_button').addEventListener('click', () => {
     if (currentMediaSession) {
         if (isPlaying) {
