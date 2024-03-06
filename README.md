@@ -9,7 +9,8 @@ La controller a ces fonctionalitée au présent:
 -Forward 10 secondes ver l'avant dans une vidéo
 -Skip une video vers l'avant
 -Skip une video vers l'arrière
-(augmenter le volume et le descendre a implémenter)
+
+~~~(augmenter le volume et le descendre a implémenter)~~~
 
 
 J'ai éssayé de implementer une fonction à sous-titres (CC/Subtitles) mais sa conception est trop avancé pour moi 
