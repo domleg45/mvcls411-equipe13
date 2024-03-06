@@ -97,13 +97,14 @@ document.getElementById('forward_10seconds').addEventListener('click', () => {
 
 
 //Method for upping the volume
-document.getElementById('').addEventListener('click', () => {
+document.getElementById('up_volume').addEventListener('click', () => {
+    const volume = 0
     
     
 });
 
 //Method for upping the volume
-document.getElementById('').addEventListener('click', () => {
+document.getElementById('down_volume').addEventListener('click', () => {
    
    
 });
