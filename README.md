@@ -22,6 +22,7 @@ J'ai eux du mal a re-créer les triangles de la maquette
 > [!NOTE]
 > Le boutton des sous titres a été remplacé par 2 bouttons de volumes qui reste a implementé
 
-
+> [!CAUTION]
+> Il reste encore un beug avec retourner en arrière avec les videos ou aller trop loin peux causer l'écran à rester noir
 
 
