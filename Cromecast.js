@@ -74,10 +74,9 @@ document.getElementById('pauseStart_button').addEventListener('click', () => {
 //Method for skipping 10 seconds forward
 document.getElementById('forward_10seconds').addEventListener('click', () => {
     const currentTime = currentMediaSession.getEstimatedTime();
-    const totalTime = currentMediaSession.media.duration;
-
-    currentTime + 10;
-
+    const seekRequest = new chrome.cast.media.SeekRequest()
+    seekRequest.currentTime =  currentTime + 10;
+    currentMediaSession.seek(seekRequest, onMediaCommandSuccess, onError);
     
 
     if (currentTime > totalTime) {
@@ -146,7 +145,7 @@ function receiverListener(availability) {
 
 function ControlVolume(volumeLevel){
    const currentVolume = new chrome.cast.Volume(volumeLevel)
-   const NewVolume = new chrome.cast.media.NewVolume(currentVolume)
+   const SetVolume = new chrome.cast.media.SetVolume(currentVolume)
    currentMediaSession.ControlVolume(NewVolume, onMediaCommandSuccess, onError)
 }
 
