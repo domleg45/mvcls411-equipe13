@@ -16,8 +16,7 @@ J'ai éssayé de implementer une fonction à sous-titres (CC/Subtitles) mais sa 
 Il manque les icones pour rendre la manette plus proche au design de la maquette mais les bouttons sont présent.
 J'ai eux du mal a re-créer les triangles de la maquette 
 
---------------------------------------
------------------NOTE-----------------
+
 Le boutton des sous titres a été remp-
 -lacé par 2 bouttons de volumes qui 
 reste a implementé
