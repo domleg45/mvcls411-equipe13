@@ -5,43 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChromeCast Controller</title>
     <link rel="stylesheet" type="text/css" href="Remote.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <div class="background">
+    <div class="container background">
 
         <div class="top_buttons">
             <div class="options_button" id="options_button">
-                <button class="option-CSS">media</button>
+                <button class="btn btn-primary fa fa-play-circle"> Start Media</button>
             </div>
+
+            <!-- make btn green when connected -->
             <div class="power_button" id="power_button">
-                <button class="power-CSS">power</button>
+                <button class="btn btn-danger fa fa-power-off"> Power</button>
             </div>
         </div>
 
 
         <div class="midway_buttons">
-            <div class="rewind_back_video" id="rewind_back_video">
-                <button class="rewind-back-CSS">rewind_back</button>
+            <div class="mr-5" id="rewind_back_video">
+                <button class="btn btn-light fa fa-fast-backward"></button>
             </div>
-            <div class="subtitles_button" id="subtitles_button">
-                <button id="up_volume" class="CC-CSS">+</button>
-                <button id="down_volume" class="CC-CSS">-</button>
+
+            <div class="mx-5" id="subtitles_button">
+                <button id="up_volume" class="btn btn-warning">+</button>
+                <button id="down_volume" class="btn btn-warning">-</button>
             </div>
-            <div class="rewind_foward_video" id="rewind_foward_video">
-                <button class="rewind-forward-CSS">rewind_forward</button>
+
+            <div class="ml-5" id="rewind_foward_video">
+                <button class="btn btn-light fa fa-fast-forward"></button>
             </div>
         </div>
 
-
+        <!-- add feedback -->
         <div class="bottom_buttons">
             <div class="rewind_30seconds" id="rewind_30seconds">
-                <button class="rewind_30seconds-CSS">rewind_30seconds</button>
+                <button class="btn btn-light">rewind_30seconds</button>
             </div>
+
+            <!-- make switch to pause-->
             <div class="pauseStart_button" id="pauseStart_button">
-                <button class="pauseStart_button-CSS">Start/Pause</button>
+                <button class="btn btn-light">Start</button>
             </div>
             <div class="forward_10seconds" id="forward_10seconds">
-                <button class="forward_10seconds-CSS">forward_10seconds</button>
+                <button class="btn btn-light">forward_10seconds</button>
             </div>
         </div>
         
