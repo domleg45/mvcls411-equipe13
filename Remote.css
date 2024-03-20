@@ -7,14 +7,13 @@
 .background {
     
     display: grid;
-    float: left;
     background-color: rgb(134, 108, 74);
     padding-left: 15px;
     padding-right: 115px;
     padding-top: 50px;
     padding-bottom: 140px;
     max-width: 410px;
-    margin-left: 37.33%;
+    margin: 0 auto;
     border-radius: 9px;
     border-color: rgb(69, 57, 41);
     border-width: 4px;
