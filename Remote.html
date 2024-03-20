@@ -4,44 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChromeCast Controller</title>
-    <link rel="stylesheet" type="text/css" href="Remote.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/5c83f167ee.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./remote.css">
 </head>
 <body>
-    <div class="background">
+    <div class="container text-center main">
 
-        <div class="top_buttons">
-            <div class="options_button" id="options_button">
-                <button class="option-CSS">media</button>
+        <div class='row'>
+            <div class="col-6" id="media_button">
+                <button class="model btn btn-primary btn-lg ">Media</button>
             </div>
-            <div class="power_button" id="power_button">
-                <button class="power-CSS">power</button>
+            <div class="col-6" id="power_button">
+                <button class="model btn btn-danger btn-lg ">Power</button>
             </div>
         </div>
 
 
-        <div class="midway_buttons">
-            <div class="rewind_back_video" id="rewind_back_video">
-                <button class="rewind-back-CSS">rewind_back</button>
+        <div class='row mt-5'>
+            <div class="col-6" id="previous_video">
+                <button class="model btn btn-info"><i class="fas fa-caret-left"></i>
+                    <br />Previous_video</button>
             </div>
-            <div class="subtitles_button" id="subtitles_button">
-                <button id="up_volume" class="CC-CSS">+</button>
-                <button id="down_volume" class="CC-CSS">-</button>
+           
+            <div class="col-6" id="next_video">
+                <button class=" model btn btn-info"><i class="fas fa-caret-right"></i>
+                    <br />Next_video</button>
             </div>
-            <div class="rewind_foward_video" id="rewind_foward_video">
-                <button class="rewind-forward-CSS">rewind_forward</button>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-12" id="pauseStart_button">
+                <button class=" model btn btn-success btn-lg ">Start/Pause</button>
             </div>
         </div>
 
 
-        <div class="bottom_buttons">
-            <div class="rewind_30seconds" id="rewind_30seconds">
-                <button class="rewind_30seconds-CSS">rewind_30seconds</button>
+        <div class='row mt-5'>
+            <div class="col-6" id="rewind_10seconds">
+                <button class=" model btn btn-info"><i class="fa-solid fa-backward"></i> <br/> 10secs</button>
             </div>
-            <div class="pauseStart_button" id="pauseStart_button">
-                <button class="pauseStart_button-CSS">Start/Pause</button>
-            </div>
-            <div class="forward_10seconds" id="forward_10seconds">
-                <button class="forward_10seconds-CSS">forward_10seconds</button>
+            
+            <div class="col-6" id="forward_10seconds">
+                <button class=" model btn btn-info bouton"><i class="fa-solid fa-forward"></i> <br/> 10secs</button>
             </div>
         </div>
         

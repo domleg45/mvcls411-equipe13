@@ -22,7 +22,7 @@ document.getElementById('power_button').addEventListener('click', () => {
     initializeApiOnly();
 });
 
-document.getElementById('options_button').addEventListener('click', () => {
+document.getElementById('media_button').addEventListener('click', () => {
     if (currentSession) {
         loadMedia(videoList[currentVideoIndex]);
     } else {
@@ -31,7 +31,7 @@ document.getElementById('options_button').addEventListener('click', () => {
 });
 
 
-document.getElementById('rewind_foward_video').addEventListener('click', () => {
+document.getElementById('next_video').addEventListener('click', () => {
     if (currentSession) {
         currentVideoIndex = (currentVideoIndex + 1) % videoList.length;
         loadMedia(videoList[currentVideoIndex]);
@@ -40,7 +40,7 @@ document.getElementById('rewind_foward_video').addEventListener('click', () => {
     }
 });
 
-document.getElementById('rewind_back_video').addEventListener('click', () => {
+document.getElementById('previous_video').addEventListener('click', () => {
     if (currentSession) {
         currentVideoIndex = (currentVideoIndex - 1) % videoList.length;
         loadMedia(videoList[currentVideoIndex]);
@@ -52,11 +52,11 @@ document.getElementById('rewind_back_video').addEventListener('click', () => {
     }
 });
 
-//Method for skipping 30 seconds back
-document.getElementById('rewind_30seconds').addEventListener('click', () => {
+//Method to go 10 seconds back
+document.getElementById('rewind_10seconds').addEventListener('click', () => {
     const currentTime = currentMediaSession.getEstimatedTime();
     const seekRequest = new chrome.cast.media.SeekRequest()
-    seekRequest.currentTime =  currentTime - 30;
+    seekRequest.currentTime =  currentTime - 10;
     currentMediaSession.seek(seekRequest, onMediaCommandSuccess, onError);
 
     if (currentTime < 0) {
@@ -70,14 +70,17 @@ document.getElementById('pauseStart_button').addEventListener('click', () => {
     if (currentMediaSession) {
         if (isPlaying) {
             currentMediaSession.pause(null, onMediaCommandSuccess, onError);
+            document.getElementById('pauseStart_button').style.backgroundColor="red";
+            
         } else {
             currentMediaSession.play(null, onMediaCommandSuccess, onError);
+            document.getElementById('pauseStart_button').style.backgroundColor="green";
         }
         isPlaying = !isPlaying;
     }
 });
 
-//Method for skipping 10 seconds forward
+//Method to go 10 seconds forward
 document.getElementById('forward_10seconds').addEventListener('click', () => {
     const currentTime = currentMediaSession.getEstimatedTime();
     const seekRequest = new chrome.cast.media.SeekRequest()
@@ -95,7 +98,7 @@ document.getElementById('forward_10seconds').addEventListener('click', () => {
 });
 
 
-//Method for upping the volume
+//Method for increase the volume
 document.getElementById('up_volume').addEventListener('click', () => {
     const volume = currentMediaSession.volume.level
     const NewVolume = Math.min(volume + 0.1)
@@ -103,7 +106,7 @@ document.getElementById('up_volume').addEventListener('click', () => {
     
 });
 
-//Method for upping the volume
+//Method for decrease the volume
 document.getElementById('down_volume').addEventListener('click', () => {
     const volume = currentMediaSession.volume.level
     const NewVolume = Math.min(volume - 0.1)
@@ -115,15 +118,12 @@ document.getElementById('down_volume').addEventListener('click', () => {
 
 function sessionListener(newSession) {
     currentSession = newSession;
-    document.getElementById('options_button').style.display = 'block';
-    document.getElementById('rewind_foward_video').style.display = 'block';
 }
 
 
 
 function initializeSeekSlider(remotePlayerController, mediaSession) {
     currentMediaSession = mediaSession;
-    document.getElementById('pauseStart_button').style.display = 'block';
    // Set max value of seek slider to media duration in seconds
    seekSlider.max = mediaSession.media.duration;
 
