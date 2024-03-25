@@ -1,16 +1,32 @@
 Sommaire: 
 J'ai choisi le projet H, dans ce projet il fallait augmenté les signifiants,
-signalisations et les polices de caractères.
+signalisations et les polices de caractères. Donc mon objectif est d'ameliorer tout ça.
 
 En premier lieu, j'ai refait la maquette parce que l'ancienne avait
 deux boutons pour une fonctionnalité non-fonctionnelle qui est celle des sous-titres. 
-J'ai aussi changer quelques Ids qui ne faisait pas vraiment de sens avec ce que le bouton fait réellment.
+J'ai aussi changer quelques Ids qui ne faisait pas vraiment de sens avec ce que le bouton fait réellement.
 D'ailleurs, il y avait un bouton qui reculait de 30 secondes et un autre pour avancé de 10 secondes, 
 j'ai changer le bouton qui reculait de 30 secondes a 10 secondes. 
 
 Concernant la signalisation, j'ai rajouter un hover pour chaque bouton pour savoir si on peut bel et bien l'utiliser.
 Dans ce hover, j'ai changer le curseur de la souris quand elle pointe le bouton,
 maintenant le curseur donne le feedback si on peut cliquer sur le bouton.
+Pour le bouton Play et Pause, j'ai ajouter deux behavior sur le bouton, qu'on clique dessus ca change le texte et la couleur de fond. 
+Si je mets un changement de curseur et un hover sur les boutons, alors l'utilisateur devrait etre plus sur si son action est possible.
+Si le bouton play et pause change de couleur et de texte, alors utilisateur va savoir que son action a été effectué. 
 
 Pour la signifiants, j'ai rajouter des logos en plus des titres pour spécifier et détallier ce que le bouton fait.
-je pense qu'en rajoutant les logos ça va aider l'utilisateur à se reperer rapidement. 
+Si je mets des logos pour chaque bouton,alors  je pense qu'en rajoutant les logos ça va aider l'utilisateur à se reperer rapidement. 
+
+
+Test de la manette A: 
+
+
+Test de la manette B: 
+
+
+
+
+Conclusion : 
+
+

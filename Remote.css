@@ -12,6 +12,7 @@
     text-align: center;
     padding: 2%;
     color: black;
+    border: 0px;
 }
 .model:hover{
     background-color: lightblue;

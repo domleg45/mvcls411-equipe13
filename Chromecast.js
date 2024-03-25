@@ -10,7 +10,7 @@ const currentTimeElement = document.getElementById('currentTime');
 const totalTimeElement = document.getElementById('totalTime');
 const defaultContentType = 'video/mp4';
 const applicationID = '3DDC41A0';
-const videoList = [
+const videoList=[
     'https://transfertco.ca/video/DBillPrelude.mp4',
     'https://transfertco.ca/video/DBillSpotted.mp4',
     'https://transfertco.ca/video/usa23_7_02.mp4',
@@ -65,16 +65,23 @@ document.getElementById('rewind_10seconds').addEventListener('click', () => {
     }
 });
 
-
 document.getElementById('pauseStart_button').addEventListener('click', () => {
+   let btn = document.getElementById("btnPauseStart") 
+   if(btn.innerHTML == "Pause"){
+    btn.style.backgroundColor = "green";
+    btn.innerText = "Play";
+   }else{
+    btn.style.backgroundColor = "red";
+    btn.innerText = "Pause";
+   }
+    
     if (currentMediaSession) {
         if (isPlaying) {
             currentMediaSession.pause(null, onMediaCommandSuccess, onError);
-            document.getElementById('pauseStart_button').style.backgroundColor="red";
+
             
         } else {
             currentMediaSession.play(null, onMediaCommandSuccess, onError);
-            document.getElementById('pauseStart_button').style.backgroundColor="green";
         }
         isPlaying = !isPlaying;
     }
