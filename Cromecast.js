@@ -134,6 +134,7 @@ function sessionListener(newSession) {
 
 function initializeSeekSlider(remotePlayerController, mediaSession) {
     currentMediaSession = mediaSession;
+    updateVolume(currentMediaSession.volume.level);
     document.getElementById('pauseStart_button').style.display = 'block';
    // Set max value of seek slider to media duration in seconds
    seekSlider.max = mediaSession.media.duration;
