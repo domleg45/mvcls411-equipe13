@@ -83,13 +83,27 @@ button:active{
 }
 
 .skipBtn {
-    width: 60px;
-    height: 60px;
+    width: 95px;
+    height: 95px;
     border-radius: 0;
     background-color: rgba(95, 158, 160, 0);
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
+}
+
+.skipForwardCSS{
+    background-image: url("./img/btnBG/skipForwardBG.svg");
+}
+.skipForwardCSS img{
+    transform: scale(0.6) translateX(-28px) translateY(3px);
+}
+
+.skipBackCSS{
+    background-image: url("../img/btnBG/skipBackBG.svg");
+}
+.skipBackCSS img{
+    transform: scale(0.6) translateX(28px) translateY(3px);
 }
 
 .skipVidBtn{
@@ -109,13 +123,6 @@ button:active{
 }
 .skipVidFlip img{
     transform: translateX(-20px) scaleX(-1);
-}
-
-.skipForwardCSS{
-    background-image: url("./img/skipForward.svg");
-}
-.skipBackCSS{
-    background-image: url("./img/skipBack.svg");
 }
 
 .playBtn{
