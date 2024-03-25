@@ -12,7 +12,7 @@ Dans mon cas, il faut que j'améliore la présentation et la clareté de la mane
   - Les boutons sont tous en texte au lieu d'utiliser des images.
   - La forme générale de la manette est correcte, mais pourrait être amélioré.
   - Je ne suis pas sur de ce que le bouton "média" veut dire.
-- Par contre, en explorant le projet, j'ai trouvé la maquette originale de la manette. Je trouve que celle-ci est bien faite et répond à la majorité de mes critiques.
+- Par contre, en explorant le projet, j'ai trouvé la maquette originale de la manette. Je trouve que celle-ci est bien faite et qu'elle répond à la majorité de mes critiques.
 - Ainsi, je vais utiliser et appliquer cette maquette avant de travailler sur les autres améliorations possibles.
 
 ## Critères
