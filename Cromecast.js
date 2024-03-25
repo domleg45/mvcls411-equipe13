@@ -102,21 +102,24 @@ document.getElementById('forward_10seconds').addEventListener('click', () => {
     }
 });
 
+function updateVolume(value){
+    document.querySelector("#show_volume").innerText = Math.floor(value*100);
+}
 
 //Method for upping the volume
 document.getElementById('up_volume').addEventListener('click', () => {
     const volume = currentMediaSession.volume.level
-    const NewVolume = Math.min(volume + 0.1)
+    const NewVolume = Math.min(volume + 0.1, 1)
+    updateVolume(NewVolume);
     currentMediaSession.ControlVolume(NewVolume, onMediaCommandSuccess, onError)
-    
 });
 
 //Method for upping the volume
 document.getElementById('down_volume').addEventListener('click', () => {
     const volume = currentMediaSession.volume.level
-    const NewVolume = Math.min(volume - 0.1)
+    const NewVolume = Math.max(volume - 0.1, 0)
+    updateVolume(NewVolume);
     currentMediaSession.ControlVolume(NewVolume, onMediaCommandSuccess, onError)
-   
 });
 
 
