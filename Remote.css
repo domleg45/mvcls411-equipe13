@@ -19,7 +19,6 @@
     border-width: 4px;
 }
 
-
 .button-row{
     background-color: rgb(111, 90, 51);
     display: flex;
@@ -33,31 +32,91 @@
     margin: auto;
 }
 
+.btnSmall{
+    width: 40px;
+    height: 40px;
+}
+
 button{
-    transition: filter 0.2s;
+    transition: 
+        filter 0.3s,
+        transform 0.4s;
     vertical-align: top;
     margin: auto;
     text-decoration: none;
     border: none;
-    filter: brightness(1);
+    filter: brightness(0.9);
     border-radius: 40px;
+    transform: scale(1);
 }
 
 button:hover{
-    transition: filter 0.2s;
-    border: 2px;
-    filter: brightness(0.9);
-    border-radius:  40px;
-    border-width: 1px;
+    transition: 
+        filter 0.1s,
+        transform 0.2s;
+    filter: brightness(1);
+    transform: scale(1.05);
+}
+
+button:active{
+    transition: 
+        filter 0.1s,
+        transform 0.2s;
+    filter: brightness(1.1);
+    transform: scale(1.15);
 }
 
 .option-CSS{
+    padding: 0;
+    margin: 0;
     background-color: rgb(11, 165, 255);
 }
 .power-CSS{
+    padding: 0;
+    margin: 0;
     background-color: crimson;
 }
 
+.skipBtn {
+    width: 60px;
+    height: 60px;
+    border-radius: 0;
+    background-color: rgba(95, 158, 160, 0);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.skipVidBtn{
+    width: 80px;
+    height: 80px;
+    background-image: url("./img/btnBG/vidBackBG.svg");
+}
+
+.skipVidBtn img{
+    width: 45%;
+    height: 45%;
+    transform: translateX(20px);
+}
+
+.skipVidFlip{
+    background-image: url("./img/btnBG/vidFrontBG.svg");
+}
+.skipVidFlip img{
+    transform: translateX(-20px) scaleX(-1);
+}
+
+.skipForwardCSS{
+    background-image: url("./img/skipForward.svg");
+}
+.skipBackCSS{
+    background-image: url("./img/skipBack.svg");
+}
+
+.playBtn{
+    width: 150px;
+    height: 150px;
+}
 
 .volume-CSS{
     width: 20px;
