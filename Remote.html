@@ -4,63 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChromeCast Controller</title>
+    <script src="Cromecast.js" type="module"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
     <link rel="stylesheet" type="text/css" href="Remote.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            height: 100vh; /* Set body height to viewport height */
+            margin: 0; /* Remove default margin */
+            display: flex;
+            align-items: center; /* Center vertically */
+            justify-content: center; /* Center horizontally */
+            background-color: rgb(80, 80, 80);
+        }
+
+        .container {
+            background-color: grey;
+            padding: 20px;
+            border: 1px solid #007bff; /* Primary border color */
+            border-radius: 10px; /* Optional: Add border radius */
+        }
+
+        .btn {
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Add box shadow */
+        }
+
+        #feedback {
+            color: lime;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
 </head>
+
 <body>
-    <div class="container background">
-
-        <div class="top_buttons">
-            <div class="options_button" id="options_button">
-                <button class="btn btn-primary fa fa-play-circle"> Start Media</button>
-            </div>
-
-            <!-- make btn green when connected -->
-            <div class="power_button" id="power_button">
-                <button class="btn btn-danger fa fa-power-off"> Power</button>
+    <div class="container">
+        <div class="row">
+            <div class="col text-center">
+                <button class="btn btn-primary fa fa-play-circle" id="options_button" name="Remote is Ready!"> Start Media</button>
+                <button class="btn btn-danger fa fa-power-off" id="power_button" name="Power On"> Power</button>
             </div>
         </div>
-
-
-        <div class="midway_buttons">
-            <div class="mr-5" id="rewind_back_video">
-                <button class="btn btn-light fa fa-fast-backward"></button>
-            </div>
-
-            <div class="mx-5" id="subtitles_button">
-                <button id="up_volume" class="btn btn-warning">+</button>
-                <button id="down_volume" class="btn btn-warning">-</button>
-            </div>
-
-            <div class="ml-5" id="rewind_foward_video">
-                <button class="btn btn-light fa fa-fast-forward"></button>
+        <div class="row mt-3">
+            <div class="col text-center">
+                <button class="btn btn-light fa fa-step-backward" id="rewind_back_video" name="Previous Video"></button>
+                <button class="btn btn-warning fa fa-volume-down" id="down_volume" name="Lower Volume"></button>
+                <button class="btn btn-warning fa fa-volume-up" id="up_volume" name="Raise Volume"></button>
+                <button class="btn btn-light fa fa-step-forward" id="rewind_forward_video" name="Next Video"></button>
             </div>
         </div>
-
-        <!-- add feedback -->
-        <div class="bottom_buttons">
-            <div class="rewind_30seconds" id="rewind_30seconds">
-                <button class="btn btn-light">rewind_30seconds</button>
-            </div>
-
-            <!-- make switch to pause-->
-            <div class="pauseStart_button" id="pauseStart_button">
-                <button class="btn btn-light">Start</button>
-            </div>
-            <div class="forward_10seconds" id="forward_10seconds">
-                <button class="btn btn-light">forward_10seconds</button>
+        <div class="row mt-3">
+            <div class="col text-center">
+                <button class="btn btn-light fa fa-backward" id="rewind_30seconds" name="Rewind 30 Seconds"></button>
+                <button class="btn btn-light" id="pauseStart_button" name="Play/Pause">Play</button>
+                <button class="btn btn-light fa fa-forward" id="forward_10seconds" name="Skip 10 Seconds"></button>
             </div>
         </div>
-        
-        
-        <script src="Cromecast.js" type="module"></script>
-        <script type="text/javascript" src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
-
+        <div id="feedback">Veuillez Alimenter et Connecter la Télécommande</div>
     </div>
 
-    
-
-    
 </body>
 </html>

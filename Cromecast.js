@@ -18,6 +18,22 @@ const videoList = [
     // Add more video URLs as needed
 ];
 
+// Get all buttons
+const buttons = document.querySelectorAll('.btn');
+
+// Get feedback element
+const feedbackElement = document.getElementById('feedback');
+
+// Add click event listener to each button
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
+        // Update feedback text
+        feedbackElement.textContent = button.name;
+    });
+});
+
+////////////////////////////////////////////////
+
 document.getElementById('power_button').addEventListener('click', () => {
     initializeApiOnly();
 });
@@ -29,7 +45,6 @@ document.getElementById('options_button').addEventListener('click', () => {
         alert('Connectez-vous sur chromecast en premier');
     }
 });
-
 
 document.getElementById('rewind_foward_video').addEventListener('click', () => {
     if (currentSession) {
@@ -65,13 +80,14 @@ document.getElementById('rewind_30seconds').addEventListener('click', () => {
     }
 });
 
-
 document.getElementById('pauseStart_button').addEventListener('click', () => {
     if (currentMediaSession) {
         if (isPlaying) {
             currentMediaSession.pause(null, onMediaCommandSuccess, onError);
+            button.textContent = "play";
         } else {
             currentMediaSession.play(null, onMediaCommandSuccess, onError);
+            button.textContent = "pause";
         }
         isPlaying = !isPlaying;
     }
@@ -94,7 +110,6 @@ document.getElementById('forward_10seconds').addEventListener('click', () => {
     }
 });
 
-
 //Method for upping the volume
 document.getElementById('up_volume').addEventListener('click', () => {
     const volume = currentMediaSession.volume.level
@@ -111,17 +126,13 @@ document.getElementById('down_volume').addEventListener('click', () => {
    
 });
 
-
-
 function sessionListener(newSession) {
     currentSession = newSession;
     document.getElementById('options_button').style.display = 'block';
     document.getElementById('rewind_foward_video').style.display = 'block';
 }
 
-
-
-function initializeSeekSlider(remotePlayerController, mediaSession) {
+function initializeSession(mediaSession) {
     currentMediaSession = mediaSession;
     document.getElementById('pauseStart_button').style.display = 'block';
    // Set max value of seek slider to media duration in seconds
@@ -136,21 +147,15 @@ function initializeSeekSlider(remotePlayerController, mediaSession) {
         currentTimeElement.textContent = formatTime(currentTime);
         totalTimeElement.textContent = formatTime(totalTime);
       }, 1000); //chaque 1000 ms... 1 sec
-  
-      // slider change
-      seekSlider.addEventListener('input', () => {
-        const seekTime = parseFloat(seekSlider.value);
-        remotePlayerController.seek(seekTime);
-      });
+
  }
 
-function receiverListener(availability) {
-    if (availability === chrome.cast.ReceiverAvailability.AVAILABLE) {
-        document.getElementById('options_button').style.display = 'block';
-    } else {
-        document.getElementById('options_button').style.display = 'none';
-    }
-}
+// function receiverListener(availability) {
+//     if (availability === chrome.cast.ReceiverAvailability.AVAILABLE) {
+//         document.getElementById('options_button').style.display = 'block';
+//     } else {
+//     }
+// }
 
 function ControlVolume(volumeLevel){
    const currentVolume = new chrome.cast.Volume(volumeLevel)
@@ -187,7 +192,7 @@ function loadMedia(videoUrl) {
 
     currentSession.loadMedia(request, mediaSession => {
         console.log('Media chargé avec succès');
-        initializeSeekSlider(remotePlayerController, mediaSession);
+        initializeSession(mediaSession);
       }, onError);
 }
 
