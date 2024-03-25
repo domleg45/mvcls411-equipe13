@@ -102,7 +102,7 @@ document.getElementById('forward_10seconds').addEventListener('click', () => {
 });
 
 function updateVolume(value){
-    document.querySelector("#show_volume").innerText = Math.floor(value*100);
+    document.querySelector("#show_volume").innerText = `${Math.floor(value*100)}%`;
 }
 
 //Method for upping the volume
