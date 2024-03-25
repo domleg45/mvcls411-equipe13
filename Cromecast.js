@@ -17,8 +17,7 @@ const videoList = [
     "https://github.com/JF195/testvideocast/raw/main/fish.mp4",
     "https://github.com/JF195/testvideocast/raw/main/cat.mp4",
     "https://github.com/JF195/testvideocast/raw/main/sans.mp4",
-    "https://github.com/JF195/testvideocast/raw/main/woz.mp4",
-    'https://drive.google.com/file/d/17U-2jbGkzWg6-8-uvesS_aNELsW1IzaG/view?usp=sharing'
+    "https://github.com/JF195/testvideocast/raw/main/woz.mp4"
     // Add more video URLs as needed
 ];
 
