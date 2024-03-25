@@ -14,6 +14,10 @@ const videoList = [
     'https://transfertco.ca/video/DBillPrelude.mp4',
     'https://transfertco.ca/video/DBillSpotted.mp4',
     'https://transfertco.ca/video/usa23_7_02.mp4',
+    "https://github.com/JF195/testvideocast/raw/main/fish.mp4",
+    "https://github.com/JF195/testvideocast/raw/main/cat.mp4",
+    "https://github.com/JF195/testvideocast/raw/main/sans.mp4",
+    "https://github.com/JF195/testvideocast/raw/main/woz.mp4",
     'https://drive.google.com/file/d/17U-2jbGkzWg6-8-uvesS_aNELsW1IzaG/view?usp=sharing'
     // Add more video URLs as needed
 ];
