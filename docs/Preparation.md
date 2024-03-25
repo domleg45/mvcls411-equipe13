@@ -23,3 +23,7 @@ Dans mon cas, il faut que j'améliore la présentation et la clareté de la mane
   - Compréhension
   - Accessibilité
   - Simplicité
+
+## Changements
+
+- J'ai amélioré les boutons de volumes, mais ils sont désactivés car ils ne marchent pas.
