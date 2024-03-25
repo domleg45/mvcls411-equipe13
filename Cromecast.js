@@ -67,6 +67,7 @@ document.getElementById('rewind_30seconds').addEventListener('click', () => {
 
 
 document.getElementById('pauseStart_button').addEventListener('click', () => {
+    let self = document.querySelector("#pauseStart_button button img");
     if (currentMediaSession) {
         if (isPlaying) {
             currentMediaSession.pause(null, onMediaCommandSuccess, onError);
@@ -74,6 +75,9 @@ document.getElementById('pauseStart_button').addEventListener('click', () => {
             currentMediaSession.play(null, onMediaCommandSuccess, onError);
         }
         isPlaying = !isPlaying;
+        console.log(self);
+        console.log(isPlaying);
+        self.src = (isPlaying) ? "./img/stop.png" : "./img/play.png"
     }
 });
 
