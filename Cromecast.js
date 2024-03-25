@@ -115,8 +115,8 @@ document.getElementById('down_volume').addEventListener('click', () => {
 
 function sessionListener(newSession) {
     currentSession = newSession;
-    document.getElementById('options_button').style.display = 'block';
-    document.getElementById('rewind_foward_video').style.display = 'block';
+    //document.getElementById('options_button').style.display = 'block';
+    //document.getElementById('rewind_foward_video').style.display = 'block';
 }
 
 
@@ -146,9 +146,9 @@ function initializeSeekSlider(remotePlayerController, mediaSession) {
 
 function receiverListener(availability) {
     if (availability === chrome.cast.ReceiverAvailability.AVAILABLE) {
-        document.getElementById('options_button').style.display = 'block';
+        //document.getElementById('options_button').style.display = 'block';
     } else {
-        document.getElementById('options_button').style.display = 'none';
+        //document.getElementById('options_button').style.display = 'none';
     }
 }
 
