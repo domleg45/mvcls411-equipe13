@@ -19,6 +19,7 @@ const videoList=[
 ];
 
 document.getElementById('power_button').addEventListener('click', () => {
+    console.time("Connection");
     initializeApiOnly();
 });
 
@@ -28,6 +29,8 @@ document.getElementById('media_button').addEventListener('click', () => {
     } else {
         alert('Connectez-vous sur chromecast en premier');
     }
+    console.timeEnd("Connection");
+    console.time("PauseAndPlay");
 });
 
 
@@ -67,23 +70,20 @@ document.getElementById('rewind_10seconds').addEventListener('click', () => {
 
 document.getElementById('pauseStart_button').addEventListener('click', () => {
    let btn = document.getElementById("btnPauseStart") 
-   if(btn.innerHTML == "Pause"){
-    btn.style.backgroundColor = "green";
-    btn.innerText = "Play";
-   }else{
-    btn.style.backgroundColor = "red";
-    btn.innerText = "Pause";
-   }
-    
+
     if (currentMediaSession) {
         if (isPlaying) {
             currentMediaSession.pause(null, onMediaCommandSuccess, onError);
-
+            btn.style.backgroundColor = "green";
+            btn.innerText = "Play";
             
         } else {
             currentMediaSession.play(null, onMediaCommandSuccess, onError);
+            btn.style.backgroundColor = "red";
+            btn.innerText = "Pause";
         }
         isPlaying = !isPlaying;
+        console.timeEnd("PauseAndPlay");
     }
 });
 
