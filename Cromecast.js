@@ -12,7 +12,10 @@ const defaultContentType = 'video/mp4';
 const applicationID = '3DDC41A0';
 
 const tests = {
-
+    start: {name:"start", cleared:false},
+    play: {name:"play", cleared:false},
+    skimVid: {name:"skim", cleared:false},
+    skipVid: {name:"skip", cleared:false}
 }
 
 const videoList = [
@@ -27,9 +30,20 @@ const videoList = [
     // Add more video URLs as needed
 ];
 
+const timeEnd = (timer) =>{
+    console.timeEnd(timer)
+    tests[timer].cleared = true
+    if (tests.play.cleared && tests.skimVid.cleared && tests.skipVid.cleared){
+        timeEnd("start")
+    }
+}
+
 document.getElementById('power_button').addEventListener('click', () => {
     initializeApiOnly();
-
+    console.time(tests.start.name);
+    console.time(tests.play.name);
+    console.time(tests.skimVid.name);
+    console.time(tests.skipVid.name);
 });
 
 document.getElementById('options_button').addEventListener('click', () => {
@@ -45,6 +59,7 @@ document.getElementById('rewind_foward_video').addEventListener('click', () => {
     if (currentSession) {
         currentVideoIndex = (currentVideoIndex + 1) % videoList.length;
         loadMedia(videoList[currentVideoIndex]);
+        timeEnd("skipVid");
     } else {
         alert('Connectez-vous sur chromecast en premier');
     }
@@ -57,6 +72,7 @@ document.getElementById('rewind_back_video').addEventListener('click', () => {
         if (currentVideoIndex < 0) {
             currentVideoIndex = videoList.length;
         }
+        timeEnd("skipVid");
     } else {
         alert('Connectez-vous sur chromecast en premier');
     }
@@ -71,6 +87,7 @@ document.getElementById('rewind_30seconds').addEventListener('click', () => {
 
     if (currentTime < 0) {
         seekRequest.currentTime = 0
+        timeEnd("skimVid");
         currentMediaSession.seek(seekRequest, onMediaCommandSuccess, onError);
     }
 });
@@ -88,6 +105,7 @@ document.getElementById('pauseStart_button').addEventListener('click', () => {
         console.log(self);
         console.log(isPlaying);
         self.src = (isPlaying) ? "./img/stop.png" : "./img/play.png"
+        timeEnd("play");
     }
 });
 
@@ -102,6 +120,7 @@ document.getElementById('forward_10seconds').addEventListener('click', () => {
     if (currentTime > totalTime) {
         currentVideoIndex = (currentVideoIndex + 1) % videoList.length;
         loadMedia(videoList[currentVideoIndex]);
+        timeEnd("skimVid");
     }
     else{
         alert('Une erreur est survenu')
