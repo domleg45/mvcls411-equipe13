@@ -31,7 +31,7 @@ const videoList = [
 ];
 
 const timeEnd = (timer) =>{
-    console.timeEnd(timer)
+    console.timeEnd(tests[timer].name)
     tests[timer].cleared = true
     if (tests.play.cleared && tests.skimVid.cleared && tests.skipVid.cleared){
         timeEnd("start")
