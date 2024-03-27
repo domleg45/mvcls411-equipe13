@@ -26,4 +26,6 @@ Dans mon cas, il faut que j'améliore la présentation et la clareté de la mane
 
 ## Changements
 
-- J'ai amélioré les boutons de volumes, mais ils sont désactivés car ils ne marchent pas.
+- J'ai amélioré les boutons de volumes, mais ils sont désactivés car, selon mes tests, ils ne marchent pas.
+- J'ai ajusté les icones et le style de la manette pour suivre la vision originale. Par contre, j'ai apporté mes propres changements pour qu'ils soivent, selon moi, plus clair.
+- J'ai même activé les fonctionnalités de filtres de couleurs pour être sur que les couleurs n'affecetent pas l'accessibilité de l'application.
