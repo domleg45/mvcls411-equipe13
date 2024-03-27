@@ -18,16 +18,12 @@ const videoList = [
     // Add more video URLs as needed
 ];
 
-// Get all buttons
 const buttons = document.querySelectorAll('.btn');
 
-// Get feedback element
 const feedbackElement = document.getElementById('feedback');
 
-// Add click event listener to each button
 buttons.forEach(button => {
     button.addEventListener('click', () => {
-        // Update feedback text
         feedbackElement.textContent = button.name;
     });
 });
@@ -38,13 +34,13 @@ document.getElementById('power_button').addEventListener('click', () => {
     initializeApiOnly();
 });
 
-document.getElementById('options_button').addEventListener('click', () => {
-    if (currentSession) {
-        loadMedia(videoList[currentVideoIndex]);
-    } else {
-        alert('Connectez-vous sur chromecast en premier');
-    }
-});
+// document.getElementById('options_button').addEventListener('click', () => {
+//     if (currentSession) {
+//         loadMedia(videoList[currentVideoIndex]);
+//     } else {
+//         alert('Connectez-vous sur chromecast en premier');
+//     }
+// });
 
 document.getElementById('rewind_foward_video').addEventListener('click', () => {
     if (currentSession) {
@@ -130,6 +126,7 @@ function sessionListener(newSession) {
     currentSession = newSession;
     document.getElementById('options_button').style.display = 'block';
     document.getElementById('rewind_foward_video').style.display = 'block';
+    loadMedia(videoList[currentVideoIndex]);
 }
 
 function initializeSession(mediaSession) {
@@ -187,8 +184,8 @@ function loadMedia(videoUrl) {
     currentVideoUrl = videoUrl;
     const mediaInfo = new chrome.cast.media.MediaInfo(videoUrl, defaultContentType);
     const request = new chrome.cast.media.LoadRequest(mediaInfo);
-    const remotePlayer = new cast.framework.RemotePlayer();
-    const remotePlayerController = new cast.framework.RemotePlayerController(remotePlayer);
+    // const remotePlayer = new cast.framework.RemotePlayer();
+    // const remotePlayerController = new cast.framework.RemotePlayerController(remotePlayer);
 
     currentSession.loadMedia(request, mediaSession => {
         console.log('Media chargé avec succès');

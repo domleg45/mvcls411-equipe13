@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChromeCast Controller</title>
-    <script src="Cromecast.js" type="module"></script>
+    <script src="Chromecast.js" type="module"></script>
     <script type="text/javascript" src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
-    <link rel="stylesheet" type="text/css" href="Remote.css">
+    <!-- <link rel="stylesheet" type="text/css" href="Remote.css"> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
@@ -20,10 +20,13 @@
         }
 
         .container {
+            height: 30em;
+            width: 18em;
             background-color: grey;
             padding: 20px;
-            border: 1px solid #007bff; /* Primary border color */
+            border: 1px solid #ffffff; /* Primary border color */
             border-radius: 10px; /* Optional: Add border radius */
+            box-shadow: 10px 10px 10px rgba(255, 255, 255, 0.2);        
         }
 
         .btn {
@@ -31,9 +34,13 @@
         }
 
         #feedback {
-            color: lime;
-            margin-top: 20px;
-            text-align: center;
+            color: ghostwhite;
+            margin-top: 50%;
+            text-align: center 
+        }
+
+        #centerbtn {
+            margin-top: 30%;
         }
     </style>
 </head>
@@ -41,27 +48,28 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col text-center">
-                <button class="btn btn-primary fa fa-play-circle" id="options_button" name="Remote is Ready!"> Start Media</button>
-                <button class="btn btn-danger fa fa-power-off" id="power_button" name="Power On"> Power</button>
+            <div class="col text-right">
+                <!-- <button class="btn btn-primary fa fa-play-circle mr-5" id="options_button" name="La Manette est Prête!"> Débuter</button> -->
+                <button class="btn btn-danger fa fa-power-off ml-5" id="power_button" name="Alimenté..." onclick="this.classList.replace('btn-danger', 'btn-success');"></button>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col text-center" id="centerbtn">
+                <!-- doit afficher volume avec slider -->
+                <button class="btn btn-light fa fa-step-backward" id="rewind_back_video" name="Vidéo Précédente"></button>
+                <button class="btn btn-warning fa fa-volume-down" id="down_volume" name="Baisse du Volume"></button>
+                <button class="btn btn-warning fa fa-volume-up" id="up_volume" name="Augmentation du Volume"></button>
+                <button class="btn btn-light fa fa-step-forward" id="rewind_forward_video" name="Vidéo Suivante"></button>
             </div>
         </div>
         <div class="row mt-3">
             <div class="col text-center">
-                <button class="btn btn-light fa fa-step-backward" id="rewind_back_video" name="Previous Video"></button>
-                <button class="btn btn-warning fa fa-volume-down" id="down_volume" name="Lower Volume"></button>
-                <button class="btn btn-warning fa fa-volume-up" id="up_volume" name="Raise Volume"></button>
-                <button class="btn btn-light fa fa-step-forward" id="rewind_forward_video" name="Next Video"></button>
+                <button class="btn btn-light fa fa-backward" id="rewind_30seconds" name="Reculé 30 Secondes"></button>
+                <button class="btn btn-light fa fa-play pt-2" id="pauseStart_button" name="Play/Pause" onclick="this.classList.contains('fa-play') ? this.classList.replace('fa-play', 'fa-pause') : this.classList.replace('fa-pause', 'fa-play')"></button>
+                <button class="btn btn-light fa fa-forward" id="forward_10seconds" name="Avancé 10 Secondes"></button>
             </div>
         </div>
-        <div class="row mt-3">
-            <div class="col text-center">
-                <button class="btn btn-light fa fa-backward" id="rewind_30seconds" name="Rewind 30 Seconds"></button>
-                <button class="btn btn-light" id="pauseStart_button" name="Play/Pause">Play</button>
-                <button class="btn btn-light fa fa-forward" id="forward_10seconds" name="Skip 10 Seconds"></button>
-            </div>
-        </div>
-        <div id="feedback">Veuillez Alimenter et Connecter la Télécommande</div>
+        <div id="feedback">Veuillez Alimenter la Télécommande</div>
     </div>
 
 </body>
