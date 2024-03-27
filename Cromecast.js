@@ -70,7 +70,7 @@ document.getElementById('rewind_back_video').addEventListener('click', () => {
         currentVideoIndex = (currentVideoIndex - 1) % videoList.length;
         loadMedia(videoList[currentVideoIndex]);
         if (currentVideoIndex < 0) {
-            currentVideoIndex = videoList.length;
+            currentVideoIndex = videoList.length-1;
         }
         timeEnd("skipVid");
     } else {
