@@ -20,16 +20,17 @@ const videoList = [
 
 document.getElementById('power_button').addEventListener('click', () => {
     initializeApiOnly();
+    loadMedia(videoList[currentVideoIndex]);
 });
 
-document.getElementById('options_button').addEventListener('click', () => {
-    if (currentSession) {
-        loadMedia(videoList[currentVideoIndex]);
+document.getElementById('help_button').addEventListener('click', function() {
+    var helpSection = document.getElementById('help_section');
+    if (helpSection.style.display === 'none') {
+        helpSection.style.display = 'block';
     } else {
-        alert('Connectez-vous sur chromecast en premier');
+        helpSection.style.display = 'none';
     }
 });
-
 
 document.getElementById('rewind_foward_video').addEventListener('click', () => {
     if (currentSession) {
@@ -52,17 +53,21 @@ document.getElementById('rewind_back_video').addEventListener('click', () => {
     }
 });
 
-//Method for skipping 30 seconds back
 document.getElementById('rewind_30seconds').addEventListener('click', () => {
-    const currentTime = currentMediaSession.getEstimatedTime();
-    const seekRequest = new chrome.cast.media.SeekRequest()
-    seekRequest.currentTime =  currentTime - 30;
-    currentMediaSession.seek(seekRequest, onMediaCommandSuccess, onError);
-
-    if (currentTime < 0) {
-        seekRequest.currentTime = 0
+    if (currentSession) {
+        const currentTime = currentMediaSession.getEstimatedTime();
+        const seekRequest = new chrome.cast.media.SeekRequest()
+        seekRequest.currentTime =  currentTime - 30;
         currentMediaSession.seek(seekRequest, onMediaCommandSuccess, onError);
+
+        if (currentTime < 0) {
+            seekRequest.currentTime = 0
+            currentMediaSession.seek(seekRequest, onMediaCommandSuccess, onError);
+        }
+    } else {
+        alert('Connectez-vous sur chromecast en premier');
     }
+    
 });
 
 
@@ -119,39 +124,6 @@ function sessionListener(newSession) {
     document.getElementById('rewind_foward_video').style.display = 'block';
 }
 
-
-
-function initializeSeekSlider(remotePlayerController, mediaSession) {
-    currentMediaSession = mediaSession;
-    document.getElementById('pauseStart_button').style.display = 'block';
-   // Set max value of seek slider to media duration in seconds
-   seekSlider.max = mediaSession.media.duration;
-
-    // Update seek slider and time elements on time update
-    updateInterval = setInterval(() => {
-        const currentTime = mediaSession.getEstimatedTime();
-        const totalTime = mediaSession.media.duration;
-  
-        seekSlider.value = currentTime;
-        currentTimeElement.textContent = formatTime(currentTime);
-        totalTimeElement.textContent = formatTime(totalTime);
-      }, 1000); //chaque 1000 ms... 1 sec
-  
-      // slider change
-      seekSlider.addEventListener('input', () => {
-        const seekTime = parseFloat(seekSlider.value);
-        remotePlayerController.seek(seekTime);
-      });
- }
-
-function receiverListener(availability) {
-    if (availability === chrome.cast.ReceiverAvailability.AVAILABLE) {
-        document.getElementById('options_button').style.display = 'block';
-    } else {
-        document.getElementById('options_button').style.display = 'none';
-    }
-}
-
 function ControlVolume(volumeLevel){
    const currentVolume = new chrome.cast.Volume(volumeLevel)
    const SetVolume = new chrome.cast.media.SetVolume(currentVolume)
@@ -187,7 +159,7 @@ function loadMedia(videoUrl) {
 
     currentSession.loadMedia(request, mediaSession => {
         console.log('Media chargé avec succès');
-        initializeSeekSlider(remotePlayerController, mediaSession);
+        currentMediaSession = mediaSession;
       }, onError);
 }
 

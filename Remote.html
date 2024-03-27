@@ -8,15 +8,15 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="Remote.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
 </head>
 
 <body>
     <div class="container mt-5">
         <div class="container background">
 
-            <div class="row d-flex top_buttons justify-content-between">
-                <button class="btn btn-primary" id="options_button"><i class="bi bi-cast"></i> media</button>
-                <button class="btn btn-danger" id="power_button"><i class="bi bi-power"></i> power</button>
+            <div class="row d-flex top_buttons justify-content-end">
+                <button class="btn btn-danger" id="power_button"><i class="bi bi-power"></i> Power</button>
             </div>
 
 
@@ -35,15 +35,29 @@
 
 
             <div class="row bottom_buttons d-flex justify-content-around mt-5">
-                <button class="btn btn-secondary" id="rewind_30seconds"><i class="bi bi-rewind-fill h4"></i></button>
+                <button class="btn btn-secondary" id="rewind_30seconds"><i class="bi bi-rewind-fill"></i></button>
                 <button class="btn btn-primary" id="pauseStart_button"><i class="bi bi-play-fill h3"></i><i class="bi bi-slash-lg h3"></i><i class="bi bi-pause-fill h3"></i></button>
-                <button class="btn btn-secondary" id="forward_10seconds"><i class="bi bi-fast-forward-fill h4"></i></button>
+                <button class="btn btn-secondary" id="forward_10seconds"><i class="bi bi-fast-forward-fill"></i></button>
+            </div>
+            <div class="row bottom_buttons d-flex justify-content-around mt-5 " >
+                <p class="info-section" id="info_section" style="color: white;">This is the info section.</p>
             </div>
 
+            <div class="row bottom_buttons d-flex justify-content-around mt-5">
+                <button class="btn btn-warning" id="help_button"><i class="bi bi-person-raised-hand"></i> Need help?</button>
+            </div>
+            <div class="row bottom_buttons d-flex justify-content-around mt-5 ">
+                <p class="help-section" id="help_section" style="display: none; color: white;">- Vous devez d'abord appuyer sur le bouton power afin de vous connecter au ChromeCast. Vous pouvez ensuite utilisez l'ensemble des boutons disponibles.
+                </br></br>- Il y a le bouton play/pause afin d'arrêter la vidéo ou de la démarer
+                </br></br>- Il y a les boutons avec un plus + ou un moins - qui permettent de contrôler le volume.
+                </br></br>- Il y a les boutons à gauche et à droite du bouton play/pause qui permettent d'avancer ou reculer la vidéo de 10 secondes.
+                </br></br>- Il y a les boutons à gauche et à droite des boutons de contrôle du volume qui permettent de passer à la vidéo suivant ou précédente.
+                </p>
+            </div>
 
             <script src="Cromecast.js" type="module"></script>
-            <script type="text/javascript"
-                src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
+            <script type="text/javascript" src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
+            
         </div>
     </div>
 
