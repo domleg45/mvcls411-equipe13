@@ -68,10 +68,10 @@ document.getElementById('rewind_foward_video').addEventListener('click', () => {
 document.getElementById('rewind_back_video').addEventListener('click', () => {
     if (currentSession) {
         currentVideoIndex = (currentVideoIndex - 1) % videoList.length;
-        loadMedia(videoList[currentVideoIndex]);
         if (currentVideoIndex < 0) {
             currentVideoIndex = videoList.length-1;
         }
+        loadMedia(videoList[currentVideoIndex]);
         timeEnd("skipVid");
     } else {
         alert('Connectez-vous sur chromecast en premier');
