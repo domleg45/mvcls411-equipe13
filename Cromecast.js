@@ -10,12 +10,18 @@ const currentTimeElement = document.getElementById('currentTime');
 const totalTimeElement = document.getElementById('totalTime');
 const defaultContentType = 'video/mp4';
 const applicationID = '3DDC41A0';
+
+const tests = {
+
+}
+
 const videoList = [
     'https://transfertco.ca/video/DBillPrelude.mp4',
     'https://transfertco.ca/video/DBillSpotted.mp4',
     'https://transfertco.ca/video/usa23_7_02.mp4',
     "https://github.com/JF195/testvideocast/raw/main/fish.mp4",
     "https://github.com/JF195/testvideocast/raw/main/cat.mp4",
+    "https://github.com/JF195/testvideocast/raw/main/heck.mp4",
     "https://github.com/JF195/testvideocast/raw/main/sans.mp4",
     "https://github.com/JF195/testvideocast/raw/main/woz.mp4"
     // Add more video URLs as needed
@@ -23,6 +29,7 @@ const videoList = [
 
 document.getElementById('power_button').addEventListener('click', () => {
     initializeApiOnly();
+
 });
 
 document.getElementById('options_button').addEventListener('click', () => {
