@@ -42,6 +42,11 @@
     border-radius: 50%;
 }
 
+.btnDisabled:hover{
+    filter: brightness(0.9);
+    transform: scale(1);
+}
+
 button{
     transition: 
         filter 0.3s,
