@@ -1,3 +1,5 @@
 # Test A/B Boutons
 
-Mon premier test va être sur les images des boutons de la manette
+Mon deuxième test va être sur la taille des boutons de la manette.
+
+Si ____, alors _____, parce que ______.
