@@ -11,7 +11,7 @@ const totalTimeElement = document.getElementById('totalTime');
 const defaultContentType = 'video/mp4';
 const applicationID = '3DDC41A0';
 
-const tests = {
+var tests = {
     start: {name:"start", cleared:false},
     play: {name:"play", cleared:false},
     skimVid: {name:"skim", cleared:false},
@@ -104,7 +104,7 @@ document.getElementById('pauseStart_button').addEventListener('click', () => {
         isPlaying = !isPlaying;
         console.log(self);
         console.log(isPlaying);
-        self.src = (isPlaying) ? "./img/stop.png" : "./img/play.png"
+        self.src = (isPlaying) ? "./img/play.png" : "./img/stop.png"
         timeEnd("play");
     }
 });
